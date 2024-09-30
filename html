@@ -1,0 +1,62 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crow Squad NFT Minting</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white min-h-screen flex flex-col items-center justify-center">
+    <div class="container max-w-lg mx-auto p-4 bg-gray-900 rounded-lg shadow-md">
+        <h1 class="text-4xl font-bold text-center mb-6">Mint Your Crow Squad NFT</h1>
+
+        <!-- Connect Wallet Section -->
+        <div class="mb-6">
+            <button id="connect-wallet" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">Connect Wallet</button>
+        </div>
+
+        <!-- Mint NFT Form -->
+        <form id="mint-form" class="space-y-4">
+            <div>
+                <label for="token-id" class="block text-sm font-medium mb-1">Token ID</label>
+                <input type="number" id="token-id" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded">
+            </div>
+            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">Mint NFT</button>
+        </form>
+
+        <!-- Placeholder for interactions -->
+        <div id="messages" class="mt-6 space-y-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('connect-wallet').addEventListener('click', async () => {
+            // Logic to connect wallet (placeholder, integrate real wallet connection here)
+            document.getElementById('messages').innerHTML = "<p class='text-green-500'>Wallet connected successfully!</p>";
+        });
+
+        document.getElementById('mint-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            let tokenId = document.getElementById('token-id').value;
+            
+            // Placeholder function to simulate minting (replace with actual minting logic)
+            function mintNFT(tokenId) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(`Token ID ${tokenId} minted successfully!`);
+                    }, 1000);
+                });
+            }
+
+            try {
+                let message = await mintNFT(tokenId);
+                document.getElementById('messages').innerHTML = `<p class='text-green-500'>${message}</p>`;
+            } catch (error) {
+                document.getElementById('messages').innerHTML = `<p class='text-red-500'>Error minting NFT: ${error}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
+```
